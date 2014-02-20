@@ -16,8 +16,9 @@ public abstract class BaseAccount implements Comparable<BaseAccount> {
 	private double balance;
 
 	/**
-	 *  Constructor - this private method is not available outside this ensuring class to
-	 *  ensure that each object get its only. 
+	 *  Default constructor. This private constructor is called by  
+	 *  overload constuctor's and ensures a unique id value is 
+	 *  generated upon object creation 
 	 */
 	private BaseAccount(){
 		// generates a universally unique identifier using the
@@ -69,7 +70,7 @@ public abstract class BaseAccount implements Comparable<BaseAccount> {
 
 	/**
 	 * Getter for the string instance variable representing owner name  
-	 * @return	String content of owner 
+	 * @return			String content of owner 
 	 */
 	public String getOwner(){
 		return this.owner;
@@ -77,7 +78,7 @@ public abstract class BaseAccount implements Comparable<BaseAccount> {
 
 	/**
 	 * Getter for the string instance variable representing Account number
-	 * @return 	String content of Account Number
+	 * @return 			String content of Account Number
 	 */
 	public String getId(){
 		return id.toString();
@@ -85,7 +86,7 @@ public abstract class BaseAccount implements Comparable<BaseAccount> {
 
 	/**
 	 * Getter for the double instance variable representing balance
-	 * @return	double value of balance
+	 * @return			Value of balance
 	 */
 	public double getBalance(){
 		return balance;
@@ -93,18 +94,18 @@ public abstract class BaseAccount implements Comparable<BaseAccount> {
 
 	/**
 	 * Modifies the current balance by amount passed in by cash parameter
-	 * @param cash	This is the cash amount the balance will be adjusted by.
+	 * @param		value	The amount the balance will be adjusted by.
 	 */
-	protected void modifyBalance(double cash){
-			balance += cash;
+	protected void modifyBalance(double value){
+			balance += value;
 	}
 
 	/**
 	 * Setter for the string instance variable representing owner name
-	 * @param	owner	This is the string value for the account owners name
+	 * @param	name	The account owners name
 	 */
-	protected void setOwner(String owner){
-		this.owner = owner;
+	protected void setOwner(String name){
+		this.owner = name;
 	}
 
 	/**
