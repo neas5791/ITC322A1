@@ -24,6 +24,7 @@ inherited equals() consistent with this. Points to note about the class are:
     exercises. 
     
 Task 2 (10 Marks)
+
 Write a SavingsAccount class that EXTENDS BaseAccount to provide accounts with the following features:	
 
   o Savings accounts are constructed with a zero balance, for which a call to the superclass constructor suffices.
@@ -36,6 +37,7 @@ Write a SavingsAccount class that EXTENDS BaseAccount to provide accounts with t
     fails if the interest rate is not positive.
     
 Task 3 (10 Marks)
+
 Write a ChequeAccount class that extends BaseAccount to provide accounts with the following
 features:
   o Cheque accounts are constructed with a zero balance, for which a call to the superclass constructor suffices.
@@ -47,6 +49,7 @@ features:
     $0.30 from the balance as a transaction charge. A successful transaction must not leave the account overdrawn.
     
 Task 4 (10 Marks)
+
 Complete the TestAccounts class (TestAccounts.java is in the Resources folder on the CSU Interact ITC322 site), which is
 to create some cheque and savings accounts and test the classes you have written. Note the following points:
 
