@@ -77,7 +77,7 @@ public class SavingsAccount extends BaseAccount{
 
 	@Override
 	public String toString() {
-		return String.format("Name:\t\t\t%s\nAccount Number:\t\t%s\nAccount Balance:\t%.2f", getOwner(), getId().toString(), getBalance());
+		return String.format("Name:\t\t\t%s\nAccount Number:\t\t%s\nAccount Balance:\t%.2f", getName(), getId().toString(), getBalance());
 	}
 
 }

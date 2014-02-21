@@ -22,7 +22,7 @@ public class TestAccount {
 		
 		for (BaseAccount b : list){
 			b.modifyBalance(r.nextInt(50-25)+25);
-			System.out.printf("%s\t%.2f\t%s\n",b.getId(),b.getBalance(),b.getOwner());
+			System.out.printf("%s\t%.2f\t%s\n",b.getId(),b.getBalance(),b.getName());
 		}
 		
 		BaseAccount[] myArray = new BaseAccount[list.size()]; 

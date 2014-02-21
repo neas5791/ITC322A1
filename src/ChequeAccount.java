@@ -72,7 +72,7 @@ public class ChequeAccount extends BaseAccount {
 
 	@Override
 	public String toString() {
-		return String.format("Name:\t\t\t%s\nAccount Number:\t\t%s\nCredit Limit:\t\t%.2f\nAccount Balance:\t%.2f", getOwner(), getId().toString(), getCreditLimit(), getBalance());
+		return String.format("Name:\t\t\t%s\nAccount Number:\t\t%s\nCredit Limit:\t\t%.2f\nAccount Balance:\t%.2f", getName(), getId().toString(), getCreditLimit(), getBalance());
 	}
 
 }
