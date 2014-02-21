@@ -14,6 +14,10 @@ public class TestAccount {
 			list.add(new ChequeAccount());
 			list.add(new SavingsAccount("Sean"));
 			list.add(new ChequeAccount("Charlie"));
+			
+			System.out.println(list.get(2).getBalance());
+			System.in.read();
+			
 		}
 		catch (Exception e)
 		{
