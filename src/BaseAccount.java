@@ -11,14 +11,14 @@ import java.util.UUID;
  */
 public abstract class BaseAccount implements Comparable<BaseAccount> {
 
-	private String owner;
+	private String name;
 	private UUID id;
 	private double balance;
 
 	/**
 	 *  Default constructor. This private constructor is called by  
-	 *  overload constuctor's and ensures a unique id value is 
-	 *  generated upon object creation 
+	 *  overload constuctor's and creates a unique id value upon  
+	 *  new object creation. 
 	 */
 	private BaseAccount(){
 		// generates a universally unique identifier using the
@@ -36,7 +36,7 @@ public abstract class BaseAccount implements Comparable<BaseAccount> {
 		this.balance = balance;
 		// the below code appends the last four digits of the unique account number to 
 		// owner attribute. Hence ensuring compareTo() does not issues a false object equivalence.
-		this.owner = "no owner\t" + 
+		this.name = "no name\t" + 
 				getId().toString().substring(
 						this.getId().toString().length() - 4, getId().toString().length());
 	}	
@@ -46,13 +46,15 @@ public abstract class BaseAccount implements Comparable<BaseAccount> {
 	 * @param owner		This is the String value
 	 * 					for the owner of the account
 	 */
-	protected BaseAccount(String owner){
+	protected BaseAccount(String name){
 		// calls overloaded constructor and initializes
-		// balance to zero dollars. Although i think i read that double are automatically initialized 
-		// with a 0 as they are not nullable. need to read more???
-		this(0);
+		// balance to zero dollars. 
+		// This balance value is automatically initialized to 
+		// its default value (zero)
+		
+		this();
 		// sets object owner value
-		this.owner = owner;
+		this.name = name;
 	}
 	
 	/**
@@ -62,9 +64,9 @@ public abstract class BaseAccount implements Comparable<BaseAccount> {
 	 * @param balance	This is the initial 
 	 * 					balance of the account
 	 */
-	protected BaseAccount (String owner, double balance){
+	protected BaseAccount (String name, double balance){
 		this();
-		this.owner = owner;
+		this.name = name;
 		this.balance = balance;
 	}
 
@@ -72,8 +74,8 @@ public abstract class BaseAccount implements Comparable<BaseAccount> {
 	 * Getter for the string instance variable representing owner name  
 	 * @return			String content of owner 
 	 */
-	public String getOwner(){
-		return this.owner;
+	public String getName(){
+		return this.name;
 	}
 
 	/**
@@ -102,24 +104,31 @@ public abstract class BaseAccount implements Comparable<BaseAccount> {
 
 	/**
 	 * Setter for the string instance variable representing owner name
-	 * @param	name	The account owners name
+	 * @param	name	The account name
+	 * <dt><b>Postcondition:</b><dd>
+	 *			Account name string value set. 
 	 */
-	protected void setOwner(String name){
-		this.owner = name;
+	protected void setName(String name){
+		this.name = name;
 	}
 
 	/**
-	 * Comparable interface required method
+	 * Comparable interface required method. Objects of BaseAccount type are compared based on the string value 
+	 * in instance variable owner.
 	 * 
-	 * Objects of BaseAccount type are compared based on the string value 
-	 * in instance variable owner. 
+	 * @param	obj is an object of type BaseAccount
+	 * @return	
+	 * 			Returns a negative integer, zero, or a positive integer 
+	 * 			as this object is less than, equal to, or greater than the 
+	 * 			specified object.
+	 *  
 	 */
 	public int compareTo(BaseAccount obj){
 		// Compares this object with the specified object for order. 
 		// Returns a negative integer, zero, or a positive integer 
 		// as this object is less than, equal to, or greater than the 
 		// specified object. 
-		return this.owner.compareTo(obj.getOwner());
+		return this.name.compareTo(obj.getName());
 	}
 	
 	/**
@@ -142,8 +151,10 @@ public abstract class BaseAccount implements Comparable<BaseAccount> {
 	/**
 	 * All derived classes must define this method
 	 *     
-	 * @param	cash	This is the amount of cash for depositing into the account
+	 * @param	cash	is the amount of money being deposited into the account
 	 * @return	Successful transactions return true, unsuccessful transactions returns false
+	 * <dt><b>Postcondition:</b><dd>
+	 * 			The balance is incremented by amount passed in by the cash argument 
 	 */
 	abstract public boolean deposit(double cash);
 	
