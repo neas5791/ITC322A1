@@ -27,7 +27,7 @@ public abstract class BaseAccount implements Comparable<BaseAccount> {
 	}
 	
 	/**
-	 * Overloaded Constructor
+	 * Overloaded Constructor 			
 	 * @param balance	This is the initial 
 	 * 					balance of the account
 	 */
@@ -88,7 +88,7 @@ public abstract class BaseAccount implements Comparable<BaseAccount> {
 
 	/**
 	 * Getter for the double instance variable representing balance
-	 * @return			Value of balance
+	 * @return			value of balance
 	 */
 	public double getBalance(){
 		return balance;
@@ -97,6 +97,8 @@ public abstract class BaseAccount implements Comparable<BaseAccount> {
 	/**
 	 * Modifies the current balance by amount passed in by cash parameter
 	 * @param		value	The amount the balance will be adjusted by.
+	 * <dt><b>Postcondition:</b><dd>
+	 * 				balance is altered by value amount argument
 	 */
 	protected void modifyBalance(double value){
 			balance += value;
@@ -134,6 +136,8 @@ public abstract class BaseAccount implements Comparable<BaseAccount> {
 	/**
 	 * Overrides the Object inherited method, uses the interface implements compareTo method to 
 	 * evaluate object equality.
+	 * <dt><b>Postcondition:</b><dd>
+	 * 			
 	 * @param	obj - an object with which this BaseAccount is compared
 	 * @return	A return 
 	 */
@@ -150,13 +154,14 @@ public abstract class BaseAccount implements Comparable<BaseAccount> {
 
 	/**
 	 * All derived classes must define this method
-	 *     
-	 * @param	cash	is the amount of money being deposited into the account
+	 * <dt><b>Precondition:</b><dd>
+	 * 			value is non-negative.
+	 * @param	value	is the amount of money being deposited into the account
 	 * @return	Successful transactions return true, unsuccessful transactions returns false
 	 * <dt><b>Postcondition:</b><dd>
-	 * 			The balance is incremented by amount passed in by the cash argument 
+	 * 			The balance is incremented by amount passed in by the value argument 
 	 */
-	abstract public boolean deposit(double cash);
+	abstract public boolean deposit(double value);
 	
 	/**
 	 * All derived classes must override this object inherited method toString()
