@@ -9,7 +9,7 @@ COMPLETE the abstract class.
 This will require IMPLEMENTING the single method of the COMPARABLE <T> INTERFACE and, to be perfectly strict, to make 
 inherited equals() consistent with this. Points to note about the class are:
 
-  o The class provides basic state and functionality needed by more specialised accounts.
+  o The class provides basic state and functionality needed by more specialized accounts.
   o All concrete subclasses will need to IMPLEMENT a deposit() method, whose implementation may differ from one subclass
     to another.
   o Any subclasses may implement a withdraw() method, but this has not been made a requirement as some accounts types 
@@ -18,10 +18,10 @@ inherited equals() consistent with this. Points to note about the class are:
     alphabetical ordering of owners? names. Use the compareTo() method of String for this.
   o The equals() method inherited from class Object is OVERRIDDEN (you must complete this) to be
     consistent with the compareTo() method.
-  o A toString() method (you must complete this) returns a string representation of the object’s state.
+  o A toString() method (you must complete this) returns a string representation of the object's state.
   o Account numbers are generated in such a way that all accounts will have a unique account number.
   o A double is used for the balance, which can cause unfortunate representational errors, but is sufficient for these
-    exercises. 
+    exercises.
     
 Task 2 (10 Marks)
 
