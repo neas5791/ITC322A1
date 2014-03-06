@@ -1,5 +1,3 @@
-import oldversion.BaseAccount;
-
 /**
  * A class representing ITC322 Assignment 1 Task 3
  * ChequeAccount. This class extends class developed in 
@@ -10,62 +8,94 @@ import oldversion.BaseAccount;
  * @author  11187033
  * 
  */
-public class ChequeAccount extends BaseAccount {
-
+public class ChequeAccount 
+	extends BaseAccount 
+{
 	private double creditLimit;
-	private double transactionFee = 0.3;
+	private static double transactionFee = 0.3;
 	
-	public ChequeAccount(){
-		super(0);
-		setCreditLimit(0);
-	}
-	
+	/** 
+	 * Constructor, calls the superclass constructor,
+	 * passing the string parameter owner. The super 
+	 * class constructor generates unique account 
+	 * number and zeroes balance.
+	 * @param owner - String value of owners name
+	 */
 	public ChequeAccount(String owner) {
 		super(owner);
-		// TODO Auto-generated constructor stub
+		this.creditLimit = 0;
 	}
 
 	/**
-	 * Setter - creditLimit value
-	 * @param creditLimit - positive value that represent the credit limit of the account
+	 * Set allowable credit limit on account
+	 * <dt><b>Precondition: </b><dd>
+	 * 			limitAmount >= 0;</dd>
+	 * <dt><b>Postcondition:</b><dd>
+	 * 			creditLimit = limitAmount;</dd> 
+	 * @param limitAmount - positive value that represent the credit limit of the account
+	 * @return returns true if creditLimit is adjusted
 	 */
-	public boolean setCreditLimit(double creditLimit){
-		if (creditLimit >= 0){
-			this.creditLimit = creditLimit;
+	public boolean setCreditLimit(double limitAmount){
+		if (limitAmount >= 0){
+			this.creditLimit = limitAmount;
 			return true;
 		}
 		return false;
 		}
 	
-	public double getCreditLimit(){
-		return creditLimit;
-	}
-	
-	@Override
-	public boolean deposit(double cash) {
-		
-		double totalDepositAmount = cash - transactionFee;
-		
-		if (totalDepositAmount >= 0){ // checks for positive value
-			modifyBalance(totalDepositAmount);
-			return true;
+	/**
+	 * Makes a deposit. 
+	 * <dt><b>Precondition: </b><dd>
+	 * 			amount >= 0;
+	 * 
+     * @param amount the amount to deposit
+     * @return true if amount is positive otherwise false
+	 * 
+	 */
+	public boolean deposit(double amount) 
+	{
+		// verifies amount is positive
+		if (amount >= 0){
+			/*
+			 * Given that each deposit bares a fee, it is possible
+			 * that in cases where the amount is less than the transactionFee
+			 * a deposit can effectively form a withdrawal. 
+			 * Given withdrawals are subject to the creditLimit
+			 * we need to check that sum of the balance, creditLimit and amount is
+			 * greater than or equal to the transactionFee 
+			 */
+			if ( ( this.balance + this.creditLimit + amount ) >= transactionFee)
+			{ 
+				this.balance += (amount - transactionFee);
+				return true;
+			}
+			else
+			{
+				System.out.println("Your deposit must be greater than or equal to " + transactionFee);
+			}
 		}
-		System.out.println("You must enter a positive value!");
+
 		return false;
 	}
 
-	public boolean withdraw(double cash){
-		
-		double totalWithdrawalAmount; 
-		
-		// checks the cash amount passed in is a positive value
-		if (cash >= 0){ 
-			totalWithdrawalAmount = cash + transactionFee;
-			System.out.printf("Amount including transacation fee is %s\n",totalWithdrawalAmount);
+	/**
+	 * Makes a withdrawal from the account balance.
+	 * 
+	 * <dt><b>Precondition: </b><dd>
+	 * 				amount >= 0;
+	 * 				<dd>balance >= amount;
+	 * <dt><b>Postcondition: </b><dd>balance is reduced by amount.</dd>
+	 * @param amount the amount to withdraw
+	 * @return returns true if balance is adjusted.
+	**/
+	public boolean withdraw(double amount){
+		if (amount >= 0){
+			//System.out.printf("Amount including transacation fee is %s\n",totalWithdrawalAmount);
+			
 			// checks thats funds are available by adding the credit limit and the current balance
 			// and comparing against the sum of the withdrawal amount and the transaction fee
-			if ( getBalance() + getCreditLimit() >= (totalWithdrawalAmount) ) {
-				modifyBalance(-totalWithdrawalAmount);
+			if ( (this.balance + this.creditLimit) >= (amount + transactionFee) ) {
+				this.balance -= (amount + transactionFee);
 				return true;
 			}
 		}
@@ -74,7 +104,7 @@ public class ChequeAccount extends BaseAccount {
 
 	@Override
 	public String toString() {
-		return String.format("Name:\t\t\t%s\nAccount Number:\t\t%s\nCredit Limit:\t\t%.2f\nAccount Balance:\t%.2f", getName(), getId().toString(), getCreditLimit(), getBalance());
+		return String.format("Name: %s\tAccount Number: %s\tBalance: %.2f\tCredit Limit: %.2f", this.owner, this.acctNumber, this.balance, this.creditLimit);
 	}
 
 }

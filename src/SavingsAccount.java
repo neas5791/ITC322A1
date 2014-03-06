@@ -1,75 +1,76 @@
-import oldversion.BaseAccount;
 
+public class SavingsAccount 
+	extends BaseAccount 
+	{
 
-public class SavingsAccount extends BaseAccount{
-
-	/**
-	 *  Constructor - this default constructor creates an
-	 *  object initialized with "no owner" + the last 4 characters
-	 *  of the unique account number as the string name 
-	 *  and 0 for account balance 
-	 *  
-	 *  method is not available outside this ensuring class to
-	 *  ensure that each object get its only. 
-	 */
-	public SavingsAccount(){
-		// calls the BaseAccount constructor and initializes the balance
-		// with zero dollars
-		super(0);
-	}
-	/**
-	 * Overloaded constructor
-	 * Sets owner name and call base class constructor to set
-	 * name and balance at zero.
+	/** 
+	 * Constructor, calls the superclass constructor,
+	 * passing the string parameter owner. The super 
+	 * class constructor generates unique account 
+	 * number and zeroes balance.
 	 * @param owner - String value of owners name
 	 */
 	public SavingsAccount(String owner) {
 		super(owner);
 	}
 
-	/****************************************************/
-
+	/**
+	 * Makes a deposit. Implementations will at least verify
+     * the amount is positive before making the deposit.
+     * @param amount the amount to deposit
+     * @return true if amount is positive otherwise false
+	 */
 	@Override
-	public boolean deposit(double cash) {
-		if (cash >= 0){ // checks for positive value
-			modifyBalance(cash);
+	public boolean deposit(double amount) {
+		// Verifies amount is positive value
+		if (amount >= 0) {
+			this.balance += amount;
 			return true;
 		}
 		System.out.println("You must enter a positive value!");
 		return false;
 	}
 
+	
 	/**
-	 * Accept cash value for withdrawal
-	 * Checks the amount is positive then calls superclass setBalance(-value)
-	 * to set new balance value
-	 * @param cash - is the positive amount that the balance will be adjusted by.
-	 * @return - returns true if balance is adjusted.
+	 * Makes a withdrawal from the account balance.
+	 * 
+	 * <dt><b>Precondition: </b><dd>
+	 * 				amount >= 0;
+	 * 				<dd>balance >= amount;
+	 * <dt><b>Postcondition: </b><dd>balance is reduced by amount.</dd>
+	 * @param amount the amount to withdraw
+	 * @return returns true if balance is adjusted.
 	**/
-	public boolean withdraw(double cash){
-		// checks for positive value and the account 
-		// has enough money to make the withdrawal
-		if ( (cash >= 0 ) && getBalance() >= cash){ 
-			modifyBalance(-cash);
+	public boolean withdraw(double amount){
+		// Verify amount is positive and sufficient balance  
+		// is available to make withdrawal
+		if ( (amount >= 0 ) && (this.balance >= amount) )
+		{
+			this.balance -= amount;
 			return true;
 		}
-		if (cash < 0)
-			System.out.println("You must enter a positive value!");
-		else
-			System.out.println("You don't have enough money in your account!");
+		//if (amount < 0)
+			//System.out.println("You must enter a positive value!");
+		//else
+			//System.out.println(this.owner + " you don't have enough money in your account!");
 		return false;
 	}
 	
 	/**
 	 * Accept interest rate value
-	 * Checks the rate is positive then calls superclass setBalance(getBalance() * rate)
-	 * to set new balance value
-	 * @param rate - is the positive amount that the balance will be adjusted by.
-	 * @return - returns true if balance is adjusted.
+	 * 
+	 * <dt><b>Precondition: </b><dd>
+	 * 				interestRate >= 0;
+	 * <dt><b>Postcondition: </b><dd>
+	 * 				will increase the magnitude of the balance using 
+	 * 				the interest rate.</dd>
+	 * @param interestRate - is the positive amount that the balance will be adjusted by.
+	 * @return returns true if balance is adjusted.
 	**/
-	public boolean addInterest(double rate){
-		if (rate >= 0){
-			modifyBalance(getBalance()*(rate/100));
+	public boolean addInterest(double interestRate){
+		if (interestRate >= 0){
+			this.balance += this.balance*(interestRate/100);
 			return true;
 		}
 		return false;
@@ -79,7 +80,7 @@ public class SavingsAccount extends BaseAccount{
 
 	@Override
 	public String toString() {
-		return String.format("Name:\t\t\t%s\nAccount Number:\t\t%s\nAccount Balance:\t%.2f", getName(), getId().toString(), getBalance());
+		return String.format("Name: %s\tAccount Number: %s\tBalance: %.2f", this.owner, this.acctNumber, this.balance);
 	}
 
 }
