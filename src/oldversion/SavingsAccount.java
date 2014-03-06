@@ -1,4 +1,4 @@
-import oldversion.BaseAccount;
+package oldversion;
 
 
 public class SavingsAccount extends BaseAccount{

@@ -1,4 +1,4 @@
-import oldversion.BaseAccount;
+package oldversion;
 
 /**
  * A class representing ITC322 Assignment 1 Task 3
