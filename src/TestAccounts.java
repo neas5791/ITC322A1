@@ -22,12 +22,14 @@ public class TestAccounts
             /* Insert code setting 50.0 credit limits */
             System.out.println(list[i]);
         }
+        
         System.out.println();
         for (i = 0; i < 5; i++) {
         	list[i].deposit(20.0);
             /* Insert code depositing 20.0 in each account */
             System.out.println(list[i]);
         }
+        
         System.out.println();
         for (i = 0; i < 5; i++) {
         	if (list[i] instanceof SavingsAccount)
@@ -37,6 +39,7 @@ public class TestAccounts
             /* Insert code withdrawing 25.0 from each account */
             System.out.println(list[i]);
         }
+        
         System.out.println();
 //        for (i = 0; i < 5; i++) {
   //          /* Insert code adding 8.0% interest as applicable */
