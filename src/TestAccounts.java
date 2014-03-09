@@ -45,11 +45,12 @@ public class TestAccounts
         
         System.out.println();
         for (i = 0; i < 5; i++) {
+            /* Insert code adding 8.0% interest as applicable */
         	if(list[i] instanceof SavingsAccount)
         		((SavingsAccount)list[i]).addInterest(8.0);
-  //          /* Insert code adding 8.0% interest as applicable */
-            System.out.println(list[i]);
+        	System.out.println(list[i]);
         }
+        
         System.out.println();
         /* Insert code to sort the accounts by owner's name */
         for (i = 0; i < 5; i++){
