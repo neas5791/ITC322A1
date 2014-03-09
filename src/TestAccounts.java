@@ -1,3 +1,6 @@
+import java.util.Arrays;
+//import java.util.Collections;
+
 //import java.util.Arrays;
 public class TestAccounts
 {
@@ -41,14 +44,18 @@ public class TestAccounts
         }
         
         System.out.println();
-//        for (i = 0; i < 5; i++) {
+        for (i = 0; i < 5; i++) {
+        	if(list[i] instanceof SavingsAccount)
+        		((SavingsAccount)list[i]).addInterest(8.0);
   //          /* Insert code adding 8.0% interest as applicable */
-    //        System.out.println(list[i]);
-      //  }
-
-//        /* Insert code to sort the accounts by owner's name */
-  //      for (i = 0; i < 5; i++)
-    //        System.out.println(list[i]);
+            System.out.println(list[i]);
+        }
+        System.out.println();
+        /* Insert code to sort the accounts by owner's name */
+        for (i = 0; i < 5; i++){
+        	Arrays.sort(list);
+            System.out.println(list[i]);
+        }
     }
 
 }
