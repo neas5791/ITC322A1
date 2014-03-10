@@ -1,6 +1,11 @@
 /**
  * An abstract class to represent a basic Bank Account
-
+ * ITC322 Assignment 1 Task 1
+ * 
+ * @see 	BaseAccount
+ * @author 	Sean Matkovich
+ * @author  11187033
+ * 
  */
 public abstract class BaseAccount
     implements Comparable<BaseAccount>
