@@ -56,8 +56,7 @@ public class ChequeAccount
 	{
 		// verifies amount is positive
 		if (amount >= 0){
-			/*
-			 * Given that each deposit bares a fee, it is possible
+			/* Given that each deposit bares a fee, it is possible
 			 * that in cases where the amount is less than the transactionFee
 			 * a deposit can effectively form a withdrawal. 
 			 * Given withdrawals are subject to the creditLimit
@@ -90,7 +89,7 @@ public class ChequeAccount
 	**/
 	public boolean withdraw(double amount){
 		if (amount >= 0){
-			//System.out.printf("Amount including transacation fee is %s\n",totalWithdrawalAmount);
+			//System.out.printf("Amount including transaction fee is %s\n",totalWithdrawalAmount);
 			
 			// checks thats funds are available by adding the credit limit and the current balance
 			// and comparing against the sum of the withdrawal amount and the transaction fee
