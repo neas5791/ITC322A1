@@ -9,7 +9,7 @@
  * 
  */
 public class ChequeAccount 
-	extends BaseAccount 
+	extends BaseAccount implements Transaction 
 {
 	private double creditLimit;
 	private static double transactionFee = 0.3;

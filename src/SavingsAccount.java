@@ -1,6 +1,6 @@
 
 public class SavingsAccount 
-	extends BaseAccount 
+	extends BaseAccount implements Transaction
 	{
 
 	/** 
@@ -45,15 +45,10 @@ public class SavingsAccount
 	public boolean withdraw(double amount){
 		// Verify amount is positive and sufficient balance  
 		// is available to make withdrawal
-		if ( (amount >= 0 ) && (this.balance >= amount) )
-		{
+		if ( (amount >= 0 ) && (this.balance >= amount) ){
 			this.balance -= amount;
 			return true;
 		}
-		//if (amount < 0)
-			//System.out.println("You must enter a positive value!");
-		//else
-			//System.out.println(this.owner + " you don't have enough money in your account!");
 		return false;
 	}
 	
