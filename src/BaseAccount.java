@@ -65,6 +65,6 @@ public abstract class BaseAccount
      */
     public String toString()
     {
-    	return String.format("%s\t%s\t%6.2s", this.owner, this.acctNumber, this.balance);
+    	return String.format("Name: %s\tAccount Number: %s\tBalance: $\t%.2f", this.owner, this.acctNumber, this.balance);
     } 
 }

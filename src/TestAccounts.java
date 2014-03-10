@@ -36,11 +36,18 @@ public class TestAccounts
         System.out.println("\nWithdraw 25.0 from each account");
         for (i = 0; i < 5; i++) {
         	/* Insert code withdrawing 25.0 from each account */
-        	if (list[i] instanceof SavingsAccount)
-        		((SavingsAccount) list[i]).withdraw(25.0);
-        	else if (list[i] instanceof ChequeAccount)
-        		((ChequeAccount) list[i]).withdraw(25.0);
-            System.out.println(list[i]);
+        	if (list[i] instanceof SavingsAccount){
+        		if (((SavingsAccount) list[i]).withdraw(25.0))
+        			System.out.println(list[i]);
+        		else
+        			System.out.println(list[i] + "\tInsufficient funds");
+        	}
+        	else if (list[i] instanceof ChequeAccount){
+        		if(((ChequeAccount) list[i]).withdraw(25.0))
+        			System.out.println(list[i]);
+        		else
+        			System.out.println(list[i] + "\tInsufficient funds");
+        	}
         }
         
         System.out.println("\nAdd 8.0% interest to the accounts");
@@ -58,7 +65,6 @@ public class TestAccounts
             System.out.println(list[i]);
         }
     }
-
 }
 
         

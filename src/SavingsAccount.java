@@ -80,7 +80,7 @@ public class SavingsAccount
 
 	@Override
 	public String toString() {
-		return String.format("Name: %s\tAccount Number: %s\tBalance: %.2f", this.owner, this.acctNumber, this.balance);
+		return super.toString(); 
 	}
 
 }

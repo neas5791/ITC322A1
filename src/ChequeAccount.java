@@ -103,7 +103,7 @@ public class ChequeAccount
 
 	@Override
 	public String toString() {
-		return String.format("Name: %s\tAccount Number: %s\tBalance: %.2f\tCredit Limit: %.2f", this.owner, this.acctNumber, this.balance, this.creditLimit);
+		return String.format("%s\tCredit Limit: $\t%.2f", super.toString(), this.creditLimit);
 	}
 
 }
