@@ -94,10 +94,11 @@ public class TestAccounts
         
         // Checks the compare to statement for consistency
         System.out.println("\nCheck the equals method works correctly");
+        System.out.println("Object b = " + b);
         for (i = 0; i < list.length; i++){
         	int a = b.compareTo(list[i]);
         	int c = -1 * list[i].compareTo(b);
-        	System.out.printf("b.compareTo(list[i]) : list[i].compareTo(b)= %s : %s\n", a, c);
+        	System.out.printf("b.compareTo(list[%s]) : list[%s].compareTo(b)= %s : %s\n",i,i, a, c);
         }
     }
 }
