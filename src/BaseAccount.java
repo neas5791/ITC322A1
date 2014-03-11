@@ -47,6 +47,19 @@ public abstract class BaseAccount
 	  	 * as this object is less than, equal to, or greater than the
 	  	 * specified object. 
     	 */
+    	
+    	// In the event that the two account both have the same name
+    	// we need to further check the account number (to ensure the equals method
+    	// remains consistent.
+    	if (this.owner.compareTo(rhs.owner) == 0){
+    		if (this.acctNumber < rhs.acctNumber)
+    			return -1;
+    		else if (this.acctNumber > rhs.acctNumber)
+    			return 1;
+    		else
+    			return 0;
+    	}
+    	
     	return this.owner.compareTo(rhs.owner);    	
     }
 

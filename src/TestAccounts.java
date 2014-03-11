@@ -84,6 +84,13 @@ public class TestAccounts
         	java.util.Arrays.sort(list);
             System.out.println(list[i]);
         }
+        
+        // Check the equals method works correctly
+        System.out.println("\nCheck the equals method works correctly");
+        BaseAccount b = list[1];
+        for (i = 0; i < list.length; i++){
+        	System.out.printf("Compare new BaseAccount object to list[%s] = %s\n", i, b.equals(list[i]));
+        }
     }
 }
 
