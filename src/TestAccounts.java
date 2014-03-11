@@ -91,6 +91,14 @@ public class TestAccounts
         for (i = 0; i < list.length; i++){
         	System.out.printf("Compare new BaseAccount object to list[%s] = %s\n", i, b.equals(list[i]));
         }
+        
+        // Checks the compare to statement for consistency
+        System.out.println("\nCheck the equals method works correctly");
+        for (i = 0; i < list.length; i++){
+        	int a = b.compareTo(list[i]);
+        	int c = -1 * list[i].compareTo(b);
+        	System.out.printf("b.compareTo(list[i]) : list[i].compareTo(b)= %s : %s\n", a, c);
+        }
     }
 }
 

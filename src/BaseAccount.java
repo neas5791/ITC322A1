@@ -36,8 +36,12 @@ public abstract class BaseAccount
     public abstract boolean deposit(double amount);
 
     /**
-     * Implements the Comparable interface, making accounts
-     * comparable through alphabetical ordering by owner's name.
+     * Compares this object with the specified object for order. 
+     * Returns a negative integer, zero, or a positive integer 
+     * as this object is less than, equal to, or greater than 
+     * the specified object.
+     * 
+     * @return a negative integer, zero, or a positive integer as this object is less than, equal to, or greater than the specified object. 
      */
     public int compareTo(BaseAccount rhs)
     { 
@@ -49,22 +53,31 @@ public abstract class BaseAccount
     	 */
     	
     	// In the event that the two account both have the same name
-    	// we need to further check the account number (to ensure the equals method
-    	// remains consistent.
+    	// we need to further check the account number followed by the 
+    	// balance. This will ensure a consistent result is achieved 
+    	// when method is used by the equals method
     	if (this.owner.compareTo(rhs.owner) == 0){
     		if (this.acctNumber < rhs.acctNumber)
     			return -1;
     		else if (this.acctNumber > rhs.acctNumber)
     			return 1;
-    		else
-    			return 0;
+    		else{
+    			if (this.balance < rhs.balance)
+        			return -1;
+        		else if (this.balance > rhs.balance)
+        			return 1;
+        		else
+        			return 0;
+    		}
     	}
-    	
     	return this.owner.compareTo(rhs.owner);    	
     }
 
     /**
-     * Override equals to be consistent with compareTo
+     * Indicates whether some other object is "equal to" this one. 
+     * 
+     * @param rhs is the object for comparison 
+     * @return true if object is equal to this.object
      */
     public boolean equals(Object rhs)
     { 
@@ -79,7 +92,11 @@ public abstract class BaseAccount
 	}
 
     /**
-     * @return String representation of the object
+     * Returns a string representation of the object. In general, 
+     * the toString method returns a string that "textually represents" 
+     * this object.
+     * 
+     * @return a string representation of the object
      */
     public String toString()
     {
