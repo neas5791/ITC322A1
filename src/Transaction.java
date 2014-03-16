@@ -3,9 +3,9 @@
  * Transaction requirements for BaseAccount class implementation. 
  * 
  * In relation to the assignment this interface seemed the most sensible way to 
- * apply common tasks to the derived BaseAccounts. I also freed me to simplify 
+ * apply common tasks to the derived BaseAccounts. It also allowed me to simplify 
  * the method calls by using the polymorphism mechanics of casting the derived 
- * objects as Tramsactions in calling TestAccounts.
+ * objects as "Transactions" in calling TestAccounts.
  * 
  * @see 	Transaction
  * @author 	Sean Matkovich
