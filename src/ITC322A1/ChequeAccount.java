@@ -1,4 +1,4 @@
-import ITC322A1.BaseAccount;
+package ITC322A1;
 
 /**
  * A class representing ITC322 Assignment 1 Task 3

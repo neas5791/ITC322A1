@@ -1,4 +1,8 @@
+
 import ITC322A1.BaseAccount;
+import ITC322A1.ChequeAccount;
+import ITC322A1.SavingsAccount;
+import ITC322A1.Transaction;
 
 /**
  * A testing class used for instantiated ITC322 Assignment 1 
