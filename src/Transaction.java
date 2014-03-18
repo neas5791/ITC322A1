@@ -22,7 +22,7 @@ public interface Transaction {
 	 * 				<dd>balance >= amount;
 	 * <dt><b>Postcondition: </b><dd>balance is reduced by amount.</dd>
 	 * @param amount the amount to withdraw
-	 * @return returns true if balance is adjusted.
+	 * @return true if positive amount withdrawn is realized as changes to balance of account; otherwise false.
 	**/
 	public boolean withdraw(double amount);
 }

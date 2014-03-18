@@ -49,7 +49,7 @@ public class ChequeAccount
 	 * 			amount >= 0;
 	 * 
      * @param amount the amount to deposit
-     * @return true if amount is positive otherwise false
+     * @return true if positive amount deposited is realized as changes to balance of account; otherwise false.
 	 * 
 	 */
 	public boolean deposit(double amount) 

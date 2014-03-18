@@ -31,7 +31,7 @@ public abstract class BaseAccount
      * Makes a deposit. Implementations will at least verify
      * the amount is positive before making the deposit.
      * @param amount the amount to deposit
-     * @return true if amount is positive otherwise false
+     * @return true if positive amount deposited is realized as changes to balance of account; otherwise false.
      */
     public abstract boolean deposit(double amount);
 

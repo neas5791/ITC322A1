@@ -51,7 +51,7 @@ public class TestAccounts
         for (i = 0; i < list.length; i++) {
         	/* Insert code withdrawing 25.0 from each account */
         	
-        	// I have introduced an Transaction interface which implements a withdraw method;
+        	// I have introduced a Transaction interface which implements a withdraw method;
         	// any class that implements this interface will therefore feature the required 
         	// withdraw method. The if statement filters objects of the interface type 
         	// the list item is then cast to a transaction type and the relevant method is called
@@ -85,6 +85,7 @@ public class TestAccounts
             System.out.println(list[i]);
         }
         
+        /* Just some testing of the class methods 
         // Check the equals method works correctly
         System.out.println("\nCheck the equals method works correctly");
         BaseAccount b = list[1];
@@ -100,6 +101,7 @@ public class TestAccounts
         	int c = -1 * list[i].compareTo(b);
         	System.out.printf("b.compareTo(list[%s]) : list[%s].compareTo(b)= %s : %s\n",i,i, a, c);
         }
+        */
     }
 }
 
