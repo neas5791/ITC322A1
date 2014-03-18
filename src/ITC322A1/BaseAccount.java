@@ -1,3 +1,4 @@
+package ITC322A1;
 /**
  * An abstract class to represent a basic Bank Account
  * ITC322 Assignment 1 Task 1

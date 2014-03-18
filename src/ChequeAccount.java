@@ -1,3 +1,5 @@
+import ITC322A1.BaseAccount;
+
 /**
  * A class representing ITC322 Assignment 1 Task 3
  * ChequeAccount. This class extends class developed in 

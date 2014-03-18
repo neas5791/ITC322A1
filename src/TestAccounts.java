@@ -1,3 +1,5 @@
+import ITC322A1.BaseAccount;
+
 /**
  * A testing class used for instantiated ITC322 Assignment 1 
  * classes.
