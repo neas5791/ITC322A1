@@ -4,6 +4,7 @@ package ITC322A1;
  * ITC322 Assignment 1 Task 1
  * 
  * @see 	BaseAccount
+ * @author	ITC322
  * @author 	Sean Matkovich
  * @author  11187033
  * 

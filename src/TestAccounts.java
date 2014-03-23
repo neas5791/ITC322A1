@@ -22,35 +22,33 @@ public class TestAccounts
         list[3] = new SavingsAccount("Jim");
         list[4] = new SavingsAccount("Jill");
 
-        int i;
-
         // In the following loops do NOT use your knowledge
         // of which member of list[] is of which type
         
         // Modified the 'for' loops to end at list[] array length
 
         System.out.println("Set credit limits of accounts to 50.0");
-        for (i = 0; i < list.length; i++) {
+        for (BaseAccount account : list) {
             /* Insert code setting 50.0 credit limits */
         	// Only objects of ChequeAccount type have a credit limit
         	// finding instances of ChequeAccount as we iterate through the
         	// the loop
-        	if (list[i] instanceof ChequeAccount)
-        		((ChequeAccount) list[i]).setCreditLimit(50.0);
-            System.out.println(list[i]);
+        	if (account instanceof ChequeAccount)
+        		((ChequeAccount) account).setCreditLimit(50.0);
+            System.out.println(account);
         }
         
         System.out.println("\nDeposit 20.0 in each account");
-        for (i = 0; i < list.length; i++) {
+        for (BaseAccount account : list) {
             /* Insert code depositing 20.0 in each account */
         	
         	// All derived class of BaseAccount have a deposit method 
-        	list[i].deposit(20.0);
-            System.out.println(list[i]);
+        	account.deposit(20.0);
+            System.out.println(account);
         }
         
         System.out.println("\nWithdraw 25.0 from each account");
-        for (i = 0; i < list.length; i++) {
+        for (BaseAccount account : list) {
         	/* Insert code withdrawing 25.0 from each account */
         	
         	// I have introduced a Transaction interface which implements a withdraw method;
@@ -58,23 +56,23 @@ public class TestAccounts
         	// withdraw method. The if statement filters objects of the interface type 
         	// the list item is then cast to a transaction type and the relevant method is called
         	// from within the derived object
-        	if ( list[i] instanceof Transaction){
-        		if (((Transaction) list[i]).withdraw(25.0))
-        			System.out.println(list[i]);
+        	if (account instanceof Transaction){
+        		if (((Transaction) account).withdraw(25.0))
+        			System.out.println(account);
         		else
-        			System.out.println(list[i] + "\tInsufficient funds");
+        			System.out.println(account + "\tInsufficient funds");
         	}	
         }
         
         System.out.println("\nAdd 8.0% interest to the accounts");
         /* Insert code adding 8.0% interest as applicable */
-        for (i = 0; i < list.length; i++) {
+        for (BaseAccount account : list) {
         	// Only objects of SavingsAccount type have an addInterest method
         	// finding instances of SavingsAccount as we iterate through the
         	// the loop
-        	if(list[i] instanceof SavingsAccount)
-        		((SavingsAccount)list[i]).addInterest(8.0);
-        	System.out.println(list[i]);
+        	if(account instanceof SavingsAccount)
+        		((SavingsAccount)account).addInterest(8.0);
+        	System.out.println(account);
         }
         
         System.out.println("\nSort accounts by name");
@@ -82,7 +80,7 @@ public class TestAccounts
         
         // Using the java.util.Array.sort to output a sorted list 
         // of our declared BaseAccount array
-        for (i = 0; i < list.length; i++){
+        for (int i = 0; i < list.length; i++){
         	java.util.Arrays.sort(list);
             System.out.println(list[i]);
         }

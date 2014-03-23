@@ -72,10 +72,9 @@ public class ChequeAccount
 			}
 			else
 			{
-				System.out.println("Your deposit must be greater than or equal to " + transactionFee);
+				return withdraw(amount);		
 			}
 		}
-
 		return false;
 	}
 
